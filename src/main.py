@@ -1,17 +1,16 @@
-from domain import Flor, Cactus
-from persistence import Archivador
+from especies import Flor, Cactus
+from logica import ServicioBotanico
 
-def ejecutar():
-    catalogo = [
-        Flor("Girasol", "Helianthus", "Amarillo"),
-        Cactus("Saguaro", "Carnegiea", True)
-    ]
+def iniciar_programa():
+    sistema = ServicioBotanico()
     
-    print("--- Sistema Botanico ---")
-    for p in catalogo:
-        print(f"Registrando: {p}")
+    sistema.agregar_planta(Flor("Girasol", "Helianthus", "Amarillo"))
+    sistema.agregar_planta(Cactus("Saguaro", "Carnegiea", True))
     
-    Archivador.guardar(catalogo)
+    for p in sistema.listar_plantas():
+        print(f"{p} -> {p.obtener_cuidados()}")
+    
+    sistema.guardar_en_disco()
 
 if __name__ == "__main__":
-    ejecutar() 
+    iniciar_programa()
