@@ -7,8 +7,9 @@ def iniciar_programa():
     sistema.agregar_planta(Flor("Girasol", "Helianthus", "Amarillo"))
     sistema.agregar_planta(Cactus("Saguaro", "Carnegiea", True))
     
+    print("\n--- Ejecutando Polimorfismo ---")
     for p in sistema.listar_plantas():
-        print(f"{p} -> {p.obtener_cuidados()}")
+        print(f"Planta: {p} -> Cuidado: {p.obtener_cuidados()}")
     
     sistema.guardar_en_disco()
 
